@@ -10,6 +10,7 @@
 #### Workspace setup ####
 library(tidyverse)
 library(arrow)
+
 #### Clean data ####
 ces2020 <-
   read_csv(
@@ -22,6 +23,9 @@ ces2020 <-
         "educ" = col_integer()
       )
   )
+
+ces2020
+
 
 ces2020 <-
   ces2020 |>
@@ -53,6 +57,6 @@ ces2020 <-
   ) |>
   select(voted_for, gender, education)
 
+
 #### Save data ####
 write_parquet(ces2020, "data/analysis_data/analysis_data.parquet")
-
